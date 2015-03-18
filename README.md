@@ -6,8 +6,11 @@
 
 In this game you have a Player and Enemies (Bugs) and a Collectible (gem). The goal of the player is to reach the water, without colliding into any one of the enemies or grab the gem. The player can move left, right, up and down. The enemies move in varying speeds on the paved block portion of the scene. Once a the player collides with an enemy, the game is reset and the player moves back to the start square. Once the player reaches the water the game is won.  The player can also win if they come into contact with the gem.
 
+###Notes
 
-###Enemy function loaded
+The game was built using object oriented javascript and html5 Canvas.  An enemy function acts as the pseudoclassical superclass upon which two subclasses are built (player and gem).  Html5 was used to draw the the images on the screen and set the layout of the background.  Below you will find all the features added to make the game work.
+
+####Enemy function loaded
 
 ####Set Enemy Initial Position
 
