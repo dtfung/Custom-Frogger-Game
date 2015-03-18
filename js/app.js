@@ -27,6 +27,8 @@ Enemy.prototype.update = function(dt) {
     }
 };
 // Draw the enemy on the screen, required method for game.
+var ctx;
+var Resources;
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -37,7 +39,7 @@ var Player = function(x, y) {
 };
 Player.prototype = Object.create(Enemy.prototype);
 Player.prototype.constructor = Player;
-Player.prototype.update = function(dt) {
+Player.prototype.update = function() {
     //if player reaches the water, the player wins, an alert message appears and the player moves back to initial position
     if (this.y <= 50) {
         this.x = 200;
@@ -52,7 +54,6 @@ Player.prototype.render = function() {
 //Gem Subclass is an functionality that adds a gem to the game.  It is also a subclass of Enemy.
 var Gem = function(x, y) {
     Enemy.call(this, x, y);
-    var randomValue;
     this.sprite = 'images/Key.png';
 };
 Gem.prototype = Object.create(Enemy.prototype);
@@ -80,24 +81,24 @@ Gem.prototype.update = function(dt) {
 // Draw the gem on the screen
 Gem.prototype.render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+};
 //Processes keyboard input & also confines player to canvas.
 Player.prototype.handleInput = function(keys) {
     switch (keys) {
         case 'left':
             if (this.x > 0) {
                 this.x = this.x - 101;
-            };
+            }
             break;
         case 'right':
             if (this.x + 101 < 404) {
                 this.x = this.x + 100;
-            };
+            }
             break;
         case 'up':
             if (this.y > 10) {
                 this.y = this.y - 85;
-            };
+            }
             break;
         case 'down':
             if (this.y + 171 < 505) {
