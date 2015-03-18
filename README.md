@@ -27,7 +27,7 @@ http://www.willvillanueva.com/an-introduction-to-pseudoclassical-instantiation-p
 
 ####Player image & location
 
-player image used : images/char-boy.png
+player image used : images/char-boy.png.
 player location was fixed and defined in var = player;
 
 ####Update player location
