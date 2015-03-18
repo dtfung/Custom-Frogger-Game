@@ -12,20 +12,28 @@ The game was built using object oriented javascript and html5 Canvas.  An enemy 
 
 ####Enemy function loaded
 
+The image used to represent the enemy is images/enemy-bug.png.
+
+This function acts as the superclass for game functionality which revolves around the movement and location of the enemy, player and gem objects on the screen.
+
 ####Set Enemy Initial Position
 
 Enemy objects placed in an array called allEnemies[].  Three enemies were created with fixed y coordinates but their x coordinates were randomized.  Each enemy was also adjusted to reappear at different times.
 
 ####Enemy speed
 
-This was defined in Enemy.prototype.update = function(dt) {}
+This was defined in Enemy.prototype.update = function(dt) {}.
+this.x = this.x + 350 * dt; was used to set the speed of the enemy.  The speed could be manually adjusted by editing the number, 350.  Enter a number greater than 350 to increase speed or enter a smaller number to reduce speed.
 
 ####Enemy location update
-Defined in an if statement in the Enemy.prototype.update = function() {}.  Once the enemy touches the right side of the canvas, its position is reset.
+
+Defined in an if statement in the Enemy.prototype.update = function() {}.  Once the enemy touches the right side of the canvas, its position is reset to a random position using the math.random() method.
 
 ####Collision with player
 
 Defined in the Enemy.prototype.update = function(dt) {}.  An array was created called collision[] which outlined all the possible ways the player and enemy objects could collide.
+
+An if function immediately follows, which defines what happens when the player and enemy objects collide.  An alert message appears, the game is lost and starts over.  The player is reset to its initial position.
 
 Here is a video I used to see how this was achieved:  https://www.youtube.com/watch?v=9h0ITOuX2Aw.
 
@@ -58,7 +66,7 @@ Also, the boundaries of the game were also defined here.
 
 ####Player collision with water
 
-Defined in Player.prototype.update = function(dt) {}.  An if statement was used to implement this feature.
+Defined in Player.prototype.update = function(dt) {}.  An if statement was used to implement this feature.  If the player reaches the water, the game is won and it starts over with the player being reset to its initial position.
 
 
 
