@@ -18,18 +18,16 @@ This function acts as the superclass for game functionality which revolves aroun
 
 ####Set Enemy Initial Position
 
-Enemy objects placed in an array called:
+Enemy objects placed in an array:
 ```javascript
- allEnemies[].
+var allEnemies = [];
+allEnemies[0] = new Enemy((0 - Math.random() * 1000), 60);
+allEnemies[1] = new Enemy((0 - Math.random() * 500), 140);
+allEnemies[2] = new Enemy((0 - Math.random() * 100), 230);
  ```
  Three enemies were created with fixed y coordinates but their x coordinates were randomized.  Each enemy was also adjusted to reappear at different times.
 
 ####Enemy speed
-
-This was defined in:
-```javascript
-Enemy.prototype.update = function(dt) {}
-```
 ```javascript
 this.x = this.x + 350 * dt;  //This was used to set the speed of the enemy.
 ```
@@ -51,10 +49,21 @@ Defined in:
 Enemy.prototype.update = function(dt) {}.
 ```
 ```javascript
-collision[] // which outlined all the possible ways the player and enemy objects could collide.
+ var collision = [];
+    collision[0] = player.x < this.x && player.x + 50 > this.x && player.y < this.y && player.y + 50 > this.y; //top left
+    collision[1] = player.x < this.x && player.x + 50 > this.x && player.y > this.y && player.y < this.y + 50; //bottom left
+    collision[2] = player.x > this.x && player.x < this.x + 50 && player.y < this.y && player.y + 50 > this.y; //top right
+    collision[3] = player.x > this.x && player.x < this.x + 50 && player.y > this.y && player.y < this.y + 50; //bottom right
+    // outlines all the possible ways the player and enemy objects could collide.
 ```
 
 An if function immediately follows, which defines what happens when the player and enemy objects collide.  An alert message appears, the game is lost and starts over.  The player is reset to its initial position.
+
+if (collision[0] || collision[1] || collision[2] || collision[3]) {
+        alert('Game Over!');
+        player.x = 200;
+        player.y = 405;
+    }
 
 Here is a video I used to see how this was achieved:  https://www.youtube.com/watch?v=9h0ITOuX2Aw.
 
@@ -74,14 +83,16 @@ var = player;
 
 ####Update player location
 ```javascript
-Player.prototype.update = function() {}.
+Player.prototype.render = function() {}
 ```
 
 ####Player Rendered
 
 Similar to the one for the enemy & defined in:
 ```javascript
-Player.prototype.render = function() {}
+Player.prototype.render = function() {
+	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
 ```
 
 ####The handleInput method
@@ -94,11 +105,17 @@ Also, the boundaries of the game were also defined here.
 
 ####Player collision with water
 
-Defined in:
-```javascript
-Player.prototype.update = function(dt) {}
-``
 An if statement was used to implement this feature.  If the player reaches the water, the game is won and it starts over with the player being reset to its initial position.
+```javascript
+Player.prototype.update = function() {
+    //if player reaches the water, the player wins, an alert message appears and the player moves back to initial position
+    if (this.y <= 50) {
+        this.x = 200;
+        this.y = 405;
+        alert('YOU WON!');
+    }
+};
+```
 
 
 
