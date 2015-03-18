@@ -1,0 +1,11 @@
+I used:
+
+W3schooles.com - 
+
+https://www.youtube.com/watch?v=9h0ITOuX2Aw
+
+http://www.willvillanueva.com/an-introduction-to-pseudoclassical-instantiation-patterns-and-subclassing-in-javascript/
+
+https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/
+
+http://discussions.udacity.com/t/player-handleinput-and-update-methods/4666
