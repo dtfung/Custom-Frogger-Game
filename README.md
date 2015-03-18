@@ -18,25 +18,41 @@ This function acts as the superclass for game functionality which revolves aroun
 
 ####Set Enemy Initial Position
 
-Enemy objects placed in an array called allEnemies[].  Three enemies were created with fixed y coordinates but their x coordinates were randomized.  Each enemy was also adjusted to reappear at different times.
+Enemy objects placed in an array called:
+```javascript
+ allEnemies[].
+ ```
+ Three enemies were created with fixed y coordinates but their x coordinates were randomized.  Each enemy was also adjusted to reappear at different times.
 
 ####Enemy speed
 
-This was defined in Enemy.prototype.update = function(dt) {}.
+This was defined in:
 ```javascript
-this.x = this.x + 350 * dt;
+Enemy.prototype.update = function(dt) {}
 ```
-This was used to set the speed of the enemy.
+```javascript
+this.x = this.x + 350 * dt;  //This was used to set the speed of the enemy.
+```
 
 The speed could be manually adjusted by editing the number, 350.  Enter a number greater than 350 to increase speed or enter a smaller number to reduce speed.
 
 ####Enemy location update
 
-Defined in an if statement in the Enemy.prototype.update = function() {}.  Once the enemy touches the right side of the canvas, its position is reset to a random position using the math.random() method.
+Defined in an if statement:
+```javascript
+Enemy.prototype.update = function() {}
+```
+Once the enemy touches the right side of the canvas, its position is reset to a random position using the math.random() method.
 
 ####Collision with player
 
-Defined in the Enemy.prototype.update = function(dt) {}.  An array was created called collision[] which outlined all the possible ways the player and enemy objects could collide.
+Defined in:
+```javascript
+Enemy.prototype.update = function(dt) {}.
+```
+```javascript
+collision[] // which outlined all the possible ways the player and enemy objects could collide.
+```
 
 An if function immediately follows, which defines what happens when the player and enemy objects collide.  An alert message appears, the game is lost and starts over.  The player is reset to its initial position.
 
@@ -51,15 +67,22 @@ http://www.willvillanueva.com/an-introduction-to-pseudoclassical-instantiation-p
 ####Player image & location
 
 player image used : images/char-boy.png.
-player location was fixed and defined in var = player;
+player location was fixed and defined in:
+```javascript
+var = player;
+```
 
 ####Update player location
-
-Defined in Player.prototype.update = function() {}.
+```javascript
+Player.prototype.update = function() {}.
+```
 
 ####Player Rendered
 
-Similar to the one for the enemy & defined in Player.prototype.render = function() {}
+Similar to the one for the enemy & defined in:
+```javascript
+Player.prototype.render = function() {}
+```
 
 ####The handleInput method
 
@@ -71,7 +94,11 @@ Also, the boundaries of the game were also defined here.
 
 ####Player collision with water
 
-Defined in Player.prototype.update = function(dt) {}.  An if statement was used to implement this feature.  If the player reaches the water, the game is won and it starts over with the player being reset to its initial position.
+Defined in:
+```javascript
+Player.prototype.update = function(dt) {}
+``
+An if statement was used to implement this feature.  If the player reaches the water, the game is won and it starts over with the player being reset to its initial position.
 
 
 
