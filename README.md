@@ -23,7 +23,12 @@ Enemy objects placed in an array called allEnemies[].  Three enemies were create
 ####Enemy speed
 
 This was defined in Enemy.prototype.update = function(dt) {}.
-this.x = this.x + 350 * dt; was used to set the speed of the enemy.  The speed could be manually adjusted by editing the number, 350.  Enter a number greater than 350 to increase speed or enter a smaller number to reduce speed.
+```javascript
+this.x = this.x + 350 * dt;
+```
+This was used to set the speed of the enemy.
+
+The speed could be manually adjusted by editing the number, 350.  Enter a number greater than 350 to increase speed or enter a smaller number to reduce speed.
 
 ####Enemy location update
 
@@ -50,7 +55,7 @@ player location was fixed and defined in var = player;
 
 ####Update player location
 
-Defined in Player.prototype.update = function(dt) {}.
+Defined in Player.prototype.update = function() {}.
 
 ####Player Rendered
 
